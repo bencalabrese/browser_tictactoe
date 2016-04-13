@@ -42,7 +42,7 @@ h1 {
   text-align: center;
 }
 
-.square:hover {
+.square.active:hover {
   background-color: grey;
 }
 

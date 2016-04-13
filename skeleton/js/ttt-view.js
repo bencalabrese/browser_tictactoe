@@ -22,9 +22,16 @@ View.prototype.makeMove = function ($square) {
   $currentSquare.addClass(mark);
 
   if (this.game.isOver()) {
+    var winningMark = this.game.winner();
+
     $(".square").addClass("loser");
-    $("." + this.game.winner()).removeClass("loser");
-    $("." + this.game.winner()).addClass("winner");
+    $("." + winningMark).removeClass("loser");
+    $("." + winningMark).addClass("winner");
+
+    $("body").append($("<h1>You win, " + winningMark + "!</h1>" ));
+
+    $(".square").off("click");
+    $(".square").removeClass("active");
   }
 
 };
@@ -40,6 +47,7 @@ View.prototype.setupBoard = function () {
       var $listItem = $("<li></li>");
       $listItem.attr("data-pos", [i,j]);
       $listItem.addClass("square");
+      $listItem.addClass("active");
       $grid.append($listItem);
     }
   }
