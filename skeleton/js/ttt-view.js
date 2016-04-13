@@ -4,9 +4,23 @@ var View = function (game, $el) {
 };
 
 View.prototype.bindEvents = function () {
+  var self = this;
+  $(".square").on("click", function(event) {
+    self.makeMove($(event.currentTarget));
+  });
 };
 
 View.prototype.makeMove = function ($square) {
+  var textPos = $square.attr("data-pos");
+  var pos = textPos.split(",").map(function(el) {
+    return parseInt(el);
+  });
+
+  this.game.playMove(pos);
+  var mark = this.game.board.grid[pos[0]][pos[1]];
+
+  var $currentSquare = $(".square[data-pos='" + textPos + "']");
+  $currentSquare.append(mark);
 };
 
 View.prototype.setupBoard = function () {
