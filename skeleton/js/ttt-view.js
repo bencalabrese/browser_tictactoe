@@ -15,12 +15,18 @@ View.prototype.makeMove = function ($square) {
   var pos = textPos.split(",").map(function(el) {
     return parseInt(el);
   });
-
   this.game.playMove(pos);
-  var mark = this.game.board.grid[pos[0]][pos[1]];
 
+  var mark = this.game.board.grid[pos[0]][pos[1]];
   var $currentSquare = $(".square[data-pos='" + textPos + "']");
-  $currentSquare.append(mark);
+  $currentSquare.addClass(mark);
+
+  if (this.game.isOver()) {
+    $(".square").addClass("loser");
+    $("." + this.game.winner()).removeClass("loser");
+    $("." + this.game.winner()).addClass("winner");
+  }
+
 };
 
 View.prototype.setupBoard = function () {

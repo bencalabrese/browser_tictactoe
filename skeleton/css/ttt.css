@@ -38,8 +38,27 @@ h1 {
   float: left;
   box-sizing: border-box;
   border: 5px solid black;
+  font-size: 75px;
+  text-align: center;
 }
 
 .square:hover {
   background-color: grey;
+}
+
+.x:after {
+  content: "X";
+}
+
+.o:after {
+  content: "O";
+}
+
+.loser {
+  color: red;
+}
+
+.winner {
+  color: white;
+  background-color: green;
 }
