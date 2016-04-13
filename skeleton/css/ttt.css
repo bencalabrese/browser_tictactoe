@@ -1,0 +1,45 @@
+/* RESET */
+
+html, body, figure, h1, ul, li {
+  margin: 0;
+  border: 0;
+  padding: 0;
+
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+
+  background: transparent;
+}
+
+h1 {
+  text-align: center;
+  font-size: 36px;
+}
+
+.group:after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.grid {
+  margin: auto;
+  background-color: green;
+  list-style: none;
+  width: 300px;
+  border: 5px solid black;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  float: left;
+  box-sizing: border-box;
+  border: 5px solid black;
+}
+
+.square:hover {
+  background-color: grey;
+}
